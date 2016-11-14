@@ -1,0 +1,4 @@
+class NotValidContent(Exception):
+    """
+    """
+    pass
