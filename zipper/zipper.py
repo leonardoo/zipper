@@ -15,14 +15,16 @@ def get_all_files_name(file):
 
 def extract_all_files(file, path="/tmp/zipper"):
     _validate(file)
+    files_name = get_all_files_name(file)
     file.extractall(path)
+    return ["{}/{}".format(path, name) for name in files_name]
 
 
 def close(file):
     try:
         file.close()
     except Exception as e:
-        return None
+        raise e
 
 
 def _validate(file):

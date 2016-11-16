@@ -3,7 +3,7 @@ import zipper
 import pathlib
 
 
-class TestStringMethods(unittest.TestCase):
+class TestZipperMethods(unittest.TestCase):
 
     def setUp(self):
         self.current_folder = pathlib.Path(".").absolute()
@@ -30,10 +30,9 @@ class TestStringMethods(unittest.TestCase):
 
     def test_extract_files(self):
         f = self._open_file()
-        zipper.extract_all_files(f)
-        path = pathlib.Path("/tmp/zipper")
-        for f in self.files:
-            self.assertEqual(path.joinpath(f).exists(), True)
+        file_paths = zipper.extract_all_files(f)
+        for path in file_paths:
+            self.assertEqual(pathlib.Path(path).exists(), True)
         zipper.close(f)
 
     def test_failed_extract_files(self):

@@ -8,7 +8,7 @@ if (sys.version_info[0], sys.version_info[1]) < (3, 2):
 
 setup(
     name='zipper',
-    version='0.0.1',
+    version='0.0.2',
     description='Zipper',
     author='leonardo orozco',
     license='MIT',
